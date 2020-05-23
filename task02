@@ -1,0 +1,47 @@
+task02学习笔记：
+
+一：在安装pytorch的过程中，国外网站下载资源速度非常慢，导致瞎下载失败，下面给出有效办法：
+    1：打开Anaconda Prompt
+    2:  在当前base环境下（也可以另外创建虚拟环境）输入镜像：
+    conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+    这样就不用在国外官方地址下载（否则速度非常慢，下载不了）
+    3：再输入conda install pytorch torchvision cudatoolkit=10.2，把-c pytorch去掉
+    4：安装其它依赖库 pip install jupyter tqdm opencv-python matplotlib pandas 
+    5：命令行输入python，并输入
+    import torch
+    import torchvision
+    print(torch.__verison__)看到版本表示pytorch安装成功
+    6：启动notebook
+    jupyter-notebook 
+二：在打开notebook过程中，出现Win10 Jupyter Notebook Kernel错误或启动问题解决方法(在网上找了查找了很多资料)：
+    1打开：anaconda prompt
+    2卸载：conda uninstall jupyter notebook
+    3安装：conda install jupyter notebook
+    
+三：opencv库的使用demo
+import cv2
+img = cv2.imread('000001.png')
+cv2.namedWindow("img", cv2.WINDOW_NORMAL)
+cv2.imshow('img',img)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+四：Pillow库使用demo
+# 导入Pillow库
+from PIL import Image
+img = Image.open('000000.png')
+img
+五：数据增强
+    数据增强可以增加训练集的样本，同时可以缓解模型的过拟合情况，给模型更强的泛化能力，这在深度学习中非常重要。主要的数据增强方法有：
+    transforms.CenterCrop 
+    transforms.ColorJitter 
+    transforms.FiveCrop 
+    transforms.RandomAffine 
+    transforms.RandomRotation 
+    等等。
+六：Pytorch读取数据
+    在pytorch中数据是通过Dataset进行封装，并通过DataLoader进行并行读取。
+七：总结
+   发现自己对类中的特殊方法 __getitem__使用不熟练以及一些常用库也不熟练，需要好好学习，提高自己。
+
+    
