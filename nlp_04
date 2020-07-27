@@ -1,0 +1,8 @@
+从本节开始学习基于深度学习的文本分类，与传统机器学习不同，深度学习既能提供特征提取供能，也可以完成分类功能。比较典型的例子有：FastText、Word2Vec和Bert，
+本小节介绍FastText，后面介绍Word2Vec和Bert
+
+FastText是一种典型的深度学习词向量的表示方法，它非常简单通过Embedding层将单词映射到稠密空间，然后将句子中所有的单词在Embedding空间中进行平均、进而完成分类操作。
+
+FastText是一个3层的神经网络，包含输入层、隐含层和输出层。它在文本分类任务上，是优于TF-IDF的，因为：
+   FastText用单词的Embedding叠加获得的文档，将相似的句子分为一类
+   FastText学习到的Embedding空间维度比较低，可以快速进行训练
